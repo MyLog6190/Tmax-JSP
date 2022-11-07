@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,9 +27,11 @@ public class TodoServlet extends HttpServlet {
      
      //request에 "todolist"라는 이름으로 todoList객체를 실어보냄.
      request.setAttribute("todolist", todoList);
+     request.getSession().setAttribute("todolist", todoList);
+     
      //todolist.jsp로 포워딩처리
      RequestDispatcher disptacher 
-           = request.getRequestDispatcher("todolist3.jsp");
+           = request.getRequestDispatcher("todolist.jsp");
      //결과를 다른페이지로 포워딩
      disptacher.forward(request, response);
      
